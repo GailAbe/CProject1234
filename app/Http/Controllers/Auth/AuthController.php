@@ -14,10 +14,14 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function validateUser(LoginRequest $request)
+    public function validateUser(Request $request)
     {
-        $request->authenticate();
-        $request->session()->regenerate();
+        $credentials = $request->validate([
+            'user_name' => 'required',
+            'password' => 'required'
+        ]);
+
+        // authenticate $credentials
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
