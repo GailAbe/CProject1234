@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 // Route::group(function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/store', [AuthController::class, 'validateUser'])->name('auth.store');
     // Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 // });
 
