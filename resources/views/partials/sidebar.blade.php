@@ -14,10 +14,17 @@
             data-menu-dropdown-timeout="500">
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
-                <li class="menu-item menu-item-active" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                <li class="menu-item {{ !request()->routeIs('home') ?: 'menu-item-active' }}" aria-haspopup="true">
+                    <a href="{{ route('home') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-home"></i>
                         <span class="menu-text">HOME</span>
+                    </a>
+                </li>
+                <li class="menu-item  {{ !request()->routeIs('complaint.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('house.index') }}" class="menu-link menu-toggle">
+                        <i class="menu-icon fas fa-home"></i>
+                        <span class="menu-text">HOUSEHOLD</span>
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">

@@ -14,9 +14,8 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-
 Route::get('/', function () {
-    return view('modules/dashboard');
+    return view('modules/dashboard')->name('home');
 });
 
 // Route::middleware('guest')->group(function () {
