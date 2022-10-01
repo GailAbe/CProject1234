@@ -14,6 +14,11 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
+
+Route::get('/', function () {
+    return view('modules/dashboard');
+});
+
 // Route::group(function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login');
     // Route::post('/login', [AuthController::class, 'store'])->name('login.store');
@@ -23,3 +28,4 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 //     // Route::get('/', [MainController::class, 'home'])->name('home');
 //     // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // });
+
