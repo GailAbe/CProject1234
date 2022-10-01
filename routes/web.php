@@ -19,10 +19,9 @@ Route::get('/', function () {
     return view('modules/dashboard');
 });
 
-// Route::group(function () {
+// Route::middleware('guest')->group(function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
-    // Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 // });
 
 // Route::middleware('auth')->group(function () {
@@ -30,3 +29,14 @@ Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store
 //     // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // });
 
+Route::controller(ComplaintController::class)->group(function () {
+    Route::group([
+        'prefix' => 'complaint'
+    ], function () {
+        Route::get('/', 'index')->name('complaint.index');
+        Route::get('/create', 'create')->name('complaint.create');
+        Route::get('/store', 'store')->name('complaint.store');
+        Route::get('/edit/{id}', 'edit')->name('complaint.edit');
+        Route::get('/update/{id}', 'update')->name('complaint.update');
+    });
+});
