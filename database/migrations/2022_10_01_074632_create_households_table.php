@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('households', function (Blueprint $table) {
             $table->id();
+            $table->string('purok_name');
+            $table->string('household_number');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

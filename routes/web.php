@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ComplaintController;
 
 
 Route::middleware('guest')->group(function () {

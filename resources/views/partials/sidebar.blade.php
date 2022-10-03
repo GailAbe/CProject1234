@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                    <a href="{{ route('complaint.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-balance-scale"></i>
                         <span class="menu-text">COMPLAINT</span>
                     </a>
@@ -36,13 +36,13 @@
                 <li class="menu-item" aria-haspopup="true">
                     <a href="" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-exclamation-triangle"></i>
-                        <span class="menu-text">INCEDENTS</span>
+                        <span class="menu-text">INCIDENTS</span>
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">
                     <a href="" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-users"></i>
-                        <span class="menu-text">OFFCIALS</span>
+                        <span class="menu-text">OFFICIALS</span>
                     </a>
                 </li>
                 <li class="menu-item" aria-haspopup="true">

@@ -8,7 +8,8 @@ class ComplaintController extends Controller
 {
     public function index()
     {
-        return view('');
+
+        return view('modules.complaints.index');
     }
 
     public function create()
