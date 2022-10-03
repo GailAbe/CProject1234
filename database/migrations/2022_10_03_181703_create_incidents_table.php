@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('complaints', function (Blueprint $table) {
+        Schema::create('incidents', function (Blueprint $table) {
             $table->id();
-            $table->string('complainant');
+            $table->string('victim');
             $table->string('date');
-            $table->string('appellant');
-            $table->string('complaint_description');
-            $table->string('complaint_status')->default('pending');
-            $table->string('witness');
+            $table->string('location');
+            $table->string('cause');
+            $table->string('incident_description');
+            $table->string('injury');
+            $table->string('person_involved');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complaints');
+        Schema::dropIfExists('incidents');
     }
 };
