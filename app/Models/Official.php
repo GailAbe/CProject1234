@@ -6,16 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Complaint extends Model
+class Official extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'complainant',
-        'date',
-        'appellant',
-        'complaint_description',
-        'complaint_status',
-        'witness',
+        'fullname',
+        'position',
+        'contact_number',
+        'purok',
     ];
 }
