@@ -7,23 +7,22 @@ use Illuminate\Http\Request;
 class ComplaintController extends Controller
 {
     public function index()
-    {
-
-        return view('modules.complaints.index');
+    { 
+        return view('modules.complaint.index'); 
     }
 
     public function create()
     {
-        return view('');
+        return view('modules.household.create');
     }
 
-    public function store(Request $request)
+    public function show(Request $request)
     {
-        return view();
+        return view('modules.household.view');
     }
 
-    public function update(Request $request, $id)
+    public function edit(Request $request, $id)
     {
-        return view();
+        return view('modules.household.edit');
     }
 }
