@@ -16,25 +16,27 @@
             <ul class="menu-nav">
                 <li class="menu-item {{ !request()->routeIs('home') ?: 'menu-item-active' }}" aria-haspopup="true">
                     <a href="{{ route('home') }}" class="menu-link menu-toggle">
-                        <i class="menu-icon fas fa-home"></i>
-                        <span class="menu-text">HOME</span>
+                        <i class="menu-icon fas fa-chart-line"></i>
+                        <span class="menu-text">DASHBOARD</span>
                     </a>
                 </li>
-                <li class="menu-item  {{ !request()->routeIs('complaint.*') ?: 'menu-item-active' }}"
+                <li class="menu-item  {{ !request()->routeIs('household.*') ?: 'menu-item-active' }}"
                     aria-haspopup="true">
-                    <a href="{{ route('house.index') }}" class="menu-link menu-toggle">
+                    <a href="{{ route('household.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-home"></i>
                         <span class="menu-text">HOUSEHOLD</span>
                     </a>
                 </li>
-                <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                <li class="menu-item  {{ !request()->routeIs('complaint.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('complaint.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-balance-scale"></i>
                         <span class="menu-text">COMPLAINT</span>
                     </a>
                 </li>
-                <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                <li class="menu-item  {{ !request()->routeIs('incident.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('incident.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-exclamation-triangle"></i>
                         <span class="menu-text">INCEDENTS</span>
                     </a>

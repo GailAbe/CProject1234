@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\HouseholdController;
+use App\Http\Controllers\IncidentController;
 
 
 Route::middleware('guest')->group(function () {
@@ -24,5 +26,29 @@ Route::controller(ComplaintController::class)->group(function () {
         Route::get('/store', 'store')->name('complaint.store');
         Route::get('/edit/{id}', 'edit')->name('complaint.edit');
         Route::get('/update/{id}', 'update')->name('complaint.update');
+    });
+});
+
+Route::controller(HouseholdController::class)->group(function () {
+    Route::group([
+        'prefix' => 'household'
+    ], function () {
+        Route::get('/', 'index')->name('household.index');
+        Route::get('/create', 'create')->name('household.create');
+        Route::get('/store', 'store')->name('household.store');
+        Route::get('/edit/{id}', 'edit')->name('household.edit');
+        Route::get('/update/{id}', 'update')->name('household.update');
+    });
+});
+
+Route::controller(IncidentController::class)->group(function () {
+    Route::group([
+        'prefix' => 'incident'
+    ], function () {
+        Route::get('/', 'index')->name('incident.index');
+        Route::get('/create', 'create')->name('incident.create');
+        Route::get('/store', 'store')->name('incident.store');
+        Route::get('/edit/{id}', 'edit')->name('incident.edit');
+        Route::get('/update/{id}', 'update')->name('incident.update');
     });
 });
