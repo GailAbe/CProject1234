@@ -7,13 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-4">
-            <!--begin::Card-->
             <div class="card wave wave-success card-custom card-stretch">
-                {{-- <div class="card-header">
-                <div class="card-title">
-                    <h3 class="card-label">Card Title <small>same height cards</small></h3>
-                </div>
-            </div> --}}
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -34,16 +28,11 @@
                     <span class="font-weight-bold text-muted font-size-sm">Total Purchase Requests</span>
                 </div>
             </div>
-            <!--end::Card-->
+
         </div>
         <div class="col-lg-4">
-            <!--begin::Card-->
+
             <div class="card wave wave-success card-custom card-stretch">
-                {{-- <div class="card-header">
-                <div class="card-title">
-                    <h3 class="card-label">Card Title <small>same height cards</small></h3>
-                </div>
-            </div> --}}
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
@@ -65,16 +54,12 @@
                     <span class="font-weight-bold text-muted font-size-sm">Total Vouchers Pending</span>
                 </div>
             </div>
-            <!--end::Card-->
+
         </div>
         <div class="col-lg-4">
-            <!--begin::Card-->
+
             <div class="card wave wave-success card-custom card-stretch">
-                {{-- <div class="card-header">
-                <div class="card-title">
-                    <h3 class="card-label">Card Title <small>same height cards</small></h3>
-                </div>
-            </div> --}}
+
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
@@ -96,7 +81,7 @@
                     <span class="font-weight-bold text-muted font-size-sm">Total Vouchers Released</span>
                 </div>
             </div>
-            <!--end::Card-->
+
         </div>
     </div>
 @endsection

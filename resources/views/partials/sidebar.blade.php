@@ -1,7 +1,7 @@
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
     <!--begin::Brand-->
     <div class="brand flex-column-auto" id="kt_brand">
-        <a href="" class="brand-logo">
+        <a href="{{ route('home') }}" class="brand-logo">
             <img alt="Logo" class="w-100px" src="{{ asset('assets/media/logos/logo-1.png') }}" />
         </a>
         <!--end::Logo-->
@@ -14,7 +14,7 @@
             data-menu-dropdown-timeout="500">
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
-                <li class="menu-item {{ !request()->routeIs('home') ?: 'menu-item-active' }}" aria-haspopup="true">
+                <li class="menu-item {{ !request()->routeIs('home.*') ?: 'menu-item-active' }}" aria-haspopup="true">
                     <a href="{{ route('home') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-chart-line"></i>
                         <span class="menu-text">DASHBOARD</span>
