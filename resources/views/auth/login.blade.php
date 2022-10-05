@@ -14,7 +14,7 @@
                     <!--begin::Login Header-->
                     <div class="d-flex flex-center mb-15">
                         <a href="#">
-                            <img src="assets/media/logos/logo-letter-13.png" class="max-h-75px" alt="" />
+                            <img src="{{ asset('z2.png') }}" class="max-h-150px" alt="zone2 logo" />
                         </a>
                     </div>
                     <!--end::Login Header-->
