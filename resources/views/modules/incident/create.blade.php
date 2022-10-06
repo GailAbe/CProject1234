@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <x-card title="Create Incident" :back-url="route('incident.index')">
-                    <div class="d-flex">
+                    <div class="d-flex flex-wrap">
                         <div class="form-group col-md-4">
                             <label>Name of Victim:<span class="text-danger">*</span></label>
                             <input type="text" name="victim" class="form-control" value=""
@@ -35,11 +35,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleTextarea">Cause of Accident:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleTextarea">Injury:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
                         </div>
                     </div>
                     <x-slot:footer>
