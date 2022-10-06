@@ -40,6 +40,7 @@
                         <td>test</td>
                         <td>juan dela cruz</td>
                         <td>place</td>
+                        <td>test</td>
                         <td class="nowrap d-flex justify-content-center">
                             <div class="d-flex justify-content-center">
                                 <a href="" class="mr-1 btn btn-success btn-sm">
@@ -48,7 +49,7 @@
                                 <a href="" class="btn btn-sm btn-primary">
                                     EDIT
                                 </a>
-                                {{-- @livewire('soi.soi-delete', ['sois' => $soi], key($soi['id'])) --}}
+                               
                             </div>
                         </td>
                     </tr>
