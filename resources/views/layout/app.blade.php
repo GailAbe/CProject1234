@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <meta name="description" content="SK Management" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="shortcut icon" href="{{ asset('assets/media/logos/e-bms.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('z2.png') }}" type="image/x-icon">
     <link rel="canonical" href="url" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     @stack('links')
