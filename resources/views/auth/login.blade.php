@@ -28,14 +28,22 @@
                             </div>
                             <form class="form" id="kt_login_signin_form">
                                 <div class="form-group">
-                                    <input
-                                        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8"
-                                        type="text" placeholder="Username" name="user_name" autocomplete="off" />
+                                    <input type="text" placeholder="Username" name="user_name" autocomplete="off"
+                                        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 @error('user_name') is-invalid @enderror" />
+                                    @error('user_name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input
-                                        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8"
-                                        type="password" placeholder="Password" name="password" />
+                                    <input type="password" placeholder="Password" name="password"
+                                        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8 @error('password') is-invalid @enderror" />
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 {{-- <div
                                 class="form-group d-flex flex-wrap justify-content-between align-items-center px-8 opacity-60">
