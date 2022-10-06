@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <x-card title="Create Incident" :back-url="route('incident.index')">
-                    <div class="d-flex">
+                    <div class="d-flex flex-wrap">
                         <div class="form-group col-md-4">
                             <label>Name of Victim:<span class="text-danger">*</span></label>
                             <input type="text" name="victim" class="form-control" value=""

@@ -10,8 +10,8 @@
         @csrf
         <div class="row">
             <div class="col-md-12">
-                <x-card title="Create Incident" :back-url="route('incident.index')">
-                    <div class="d-flex">
+                <x-card title="Create Complaint" :back-url="route('complaint.index')">
+                    <div class="d-flex flex-wrap">
                         <div class="form-group col-md-6">
                             <label>Name of Complainant:<span class="text-danger">*</span></label>
                             <input type="text" name="complainant" class="form-control" value=""
@@ -26,14 +26,16 @@
                             <input type="text" name="witness" class="form-control" value=""
                                 placeholder="Enter Witness" />
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
+                            <label>Complain To:<span class="text-danger">*</span></label>
+                            <input type="text" name="complaint_to" class="form-control" value=""
+                                placeholder="Enter Witness" />
+                        </div>
+                        <div class="form-gro col-md-12">
                             <label for="exampleTextarea">Notes/Cause of Complaint:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="notes" rows="3"></textarea>
+                            <textarea class="form-control" name="notes" rows="4"></textarea>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleTextarea">Complain To:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="complaint_to" rows="3"></textarea>
-                        </div>
+
                     </div>
                     <x-slot:footer>
                         <div class="d-flex justify-content-end">
