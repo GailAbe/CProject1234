@@ -41,8 +41,9 @@
                         <span class="menu-text">INCIDENTS</span>
                     </a>
                 </li>
-                <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                <li class="menu-item {{ !request()->routeIs('official.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('official.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-users"></i>
                         <span class="menu-text">OFFICIALS</span>
                     </a>
@@ -53,34 +54,6 @@
                         <span class="menu-text text-nowrap">TRASH BIN</span>
                     </a>
                 </li>
-                {{-- <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <i class="menu-icon flaticon2-laptop"></i>
-                        <span class="menu-text">OFFICIALS</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Reports</span>
-                                </a>
-                            </li>
-                            <li class="menu-item" aria-haspopup="true">
-                                <a href="#" class="menu-link">
-                                    <i class="menu-bullet menu-bullet-dot">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Apps</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
             </ul>
         </div>
     </div>
