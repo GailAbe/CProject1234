@@ -35,11 +35,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleTextarea">Cause of Accident:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleTextarea">Injury:<span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
                         </div>
                     </div>
                     <x-slot:footer>

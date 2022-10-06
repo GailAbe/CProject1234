@@ -31,11 +31,19 @@
                             <input type="text" name="complaint_to" class="form-control" value=""
                                 placeholder="Enter Witness" />
                         </div>
-                        <div class="form-gro col-md-12">
+                        <div class="form-group col-md-12">
                             <label for="exampleTextarea">Notes/Cause of Complaint:<span class="text-danger">*</span></label>
                             <textarea class="form-control" name="notes" rows="4"></textarea>
                         </div>
-
+                        <div class="form-group col-md-6">
+                            <label>Barangay Captain:<span class="text-danger">*</span></label>
+                            <input type="text" name="captain" class="form-control" value=""
+                                placeholder="Enter Name of Complainant" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Secretary:<span class="text-danger">*</span></label>
+                            <input type="date" name="secretary" class="form-control" value="" placeholder="" />
+                        </div>
                     </div>
                     <x-slot:footer>
                         <div class="d-flex justify-content-end">
