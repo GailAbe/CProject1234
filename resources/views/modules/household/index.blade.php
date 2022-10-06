@@ -15,10 +15,7 @@
                 <form class="d-flex" role="search">
                     <input class="form-control search mr-2" type="search" placeholder="Search" aria-label="Search">
                 </form>
-                <button type="button" class="mr-2 btn btn-info font-weight-bolder">
-                    <span class="svg-icon svg-icon-md">
-                        <i class="flaticon2-file-1"></i>
-                    </span>Export</button>
+                @livewire('household.export', ['households' => $households])
                 <a href="{{ route('household.create') }}" class="btn btn-primary font-weight-bolder">
                     <i class="flaticon-add"></i> Add Household
                 </a>
@@ -28,31 +25,43 @@
             <table class="table table-hover" id="kt_datatable">
                 <thead>
                     <tr>
-                        <th>HOUSEHOL NO.</th>
+                        <th>#</th>
+                        <th>HOUSEHOLD NO.</th>
                         <th>PUROK</th>
-                        <th>FAMILY MEMBER</th>
+                        <th>FAMILY HEAD</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>test 01</td>
-                        <td>PUROK 1</td>
-                        <td>JUAN DELA CRUZ</td>
-                        <td class="nowrap d-flex justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <a href="" class="mr-1 btn btn-success btn-sm">
-                                    VIEW
-                                </a>
-                                <a href="" class="btn btn-sm btn-primary">
-                                    EDIT
-                                </a>
-                                {{-- @livewire('soi.soi-delete', ['sois' => $soi], key($soi['id'])) --}}
-                            </div>
-                        </td>
-                    </tr>
+                    @forelse ($households as $household)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $household->household_number }}</td>
+                            <td>{{ $household->purok_name }}</td>
+                            <td>{{ $household->fhead_name }}</td>
+                            <td class="nowrap d-flex justify-content-center">
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('household.show', $household->id) }}"
+                                        class="mr-1 btn btn-success btn-sm">
+                                        VIEW
+                                    </a>
+                                    <a href="{{ route('household.edit', $household->id) }}"
+                                        class="btn btn-sm btn-primary mr-1">EDIT</a>
+                                    @livewire('household.del-exp', ['household' => $household], key($household->id))
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center">No data found</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @livewireScripts
+@endpush

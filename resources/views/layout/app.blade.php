@@ -200,61 +200,49 @@
                 }
             });
         });
-
-        //insert later the restore and forcedelete listeners
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            var semsArray = ['#firstSem', '#secondSem'];
-            $(semsArray.join(",")).on('change keyup paste click', function() {
-                var firstSem = parseFloat($('#firstSem').val());
-                var secondSem = parseFloat($('#secondSem').val());
-
-                if (isNaN(firstSem) || firstSem < 0) {
-                    firstSem = 0;
-                } else if (isNaN(secondSem) || secondSem < 0) {
-                    secondSem = 0;
-                }
-
-                var total = firstSem + secondSem;
-                $('#totalSem').val(total);
-            });
-
-
-            $('#aipType').on('change click paste', function() {
-                if (this.value == 'Program') {
-                    $('.prog_under').hide(); // set it to hide using .hide(); or attr('disabled', true)
-                    $('.proj_under').hide();
-                    $('.exp_Tag').show(); // or set to show using .show();
-                } else if (this.value == 'Project') {
-                    $('.prog_under').show();
-                    $('.proj_under').hide();
-                    $('.exp_Tag').show();
-                } else if (this.value == 'Activity') {
-                    $('.prog_under').show();
-                    $('.proj_under').show();
-                    $('.exp_Tag').hide();
-                } else {
-                    $('.prog_under').show();
-                    $('.proj_under').show();
-                    $('.exp_Tag').show();
+        window.addEventListener('swal:restore', event => {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: event.detail.message,
+                showCancelButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('restore', event.detail.id)
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Successfully Restored',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
             });
-
-
-            // $('.aipMarked').attr('hidden', true);
-
-            // $('#markAIP').change(function() {
-            //     if ($(this).is(':checked')) {
-            //         $('.aipMarked').attr('hidden', false);
-            //     } else {
-            //         $('.aipMarked').attr('hidden', true);
-            //     }
-            // });
-        })
+        });
+        window.addEventListener('swal:forceDel', event => {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: event.detail.message,
+                showCancelButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('forceDelete', event.detail.id)
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Successfully Deleted',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            });
+        });
     </script>
-
 </body>
 
 </html>

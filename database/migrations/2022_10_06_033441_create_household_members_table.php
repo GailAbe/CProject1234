@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('households', function (Blueprint $table) {
+        Schema::create('household_members', function (Blueprint $table) {
             $table->id();
-            $table->string('household_number');
-            $table->string('purok_name');
-            $table->string('fhead_name');
-            $table->string('fhead_gender');
-            $table->string('fhead_bdate');
-            $table->string('fhead_bplace');
-            $table->string('fhead_cstatus');
+            $table->foreignId('household_id')->constrained('households')->onDelete('cascade')->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('bdate')->nullable();
+            $table->string('bplace')->nullable();
+            $table->string('cstatus')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('households');
+        Schema::dropIfExists('household_members');
     }
 };

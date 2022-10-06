@@ -25,9 +25,9 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('/', 'index')->name('complaint.index');
             Route::get('/create', 'create')->name('complaint.create');
-            Route::get('/store', 'store')->name('complaint.store');
+            Route::post('/store', 'store')->name('complaint.store');
             Route::get('/edit/{id}', 'edit')->name('complaint.edit');
-            Route::get('/update/{id}', 'update')->name('complaint.update');
+            Route::put('/update/{id}', 'update')->name('complaint.update');
         });
     });
 
@@ -37,9 +37,10 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('/', 'index')->name('household.index');
             Route::get('/create', 'create')->name('household.create');
-            Route::get('/store', 'store')->name('household.store');
+            Route::post('/store', 'store')->name('household.store');
             Route::get('/edit/{id}', 'edit')->name('household.edit');
-            Route::get('/update/{id}', 'update')->name('household.update');
+            Route::put('/update/{id}', 'update')->name('household.update');
+            Route::get('/show/{id}', 'show')->name('household.show');
         });
     });
 
