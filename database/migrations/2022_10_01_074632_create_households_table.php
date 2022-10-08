@@ -17,11 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('household_number');
             $table->string('purok_name');
-            $table->string('fhead_name');
-            $table->string('fhead_gender');
-            $table->string('fhead_bdate');
-            $table->string('fhead_bplace');
-            $table->string('fhead_cstatus');
             $table->softDeletes();
             $table->timestamps();
         });

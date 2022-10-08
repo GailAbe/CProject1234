@@ -30,46 +30,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row pt-2 mb-2">
-                        <div class="col-md-4">
-                            <label class="font-weight-bolder">Fullname of Family Head <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" name="fhead_name" class="form-control"
-                                value="{{ $household->fhead_name }}" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="font-weight-bolder">Gender of Family Head <span
-                                    class="text-danger">*</span></label>
-                            <select name="fhead_gender" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($genders as $gender)
-                                    <option value="{{ $gender }}" @selected($household->fhead_gender == $gender)>{{ $gender }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="font-weight-bolder">Civil Status <span class="text-danger">*</span></label>
-                            <select name="fhead_cstatus" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($cstatus as $status)
-                                    <option value="{{ $status }}" @selected($household->fhead_cstatus == $status)>{{ $status }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <br>
-                        <div class="col-md-6 pt-2">
-                            <label class="font-weight-bolder">Birth Place: <span class="text-danger">*</span></label>
-                            <input type="text" name="fhead_bplace" class="form-control"
-                                value="{{ $household->fhead_bplace }}" placeholder="Birthplace" required />
-                        </div>
-                        <div class="col-md-6 pt-2">
-                            <label class="font-weight-bolder">Birth Date: <span class="text-danger">*</span></label>
-                            <input type="date" name="fhead_bdate" class="form-control"
-                                value="{{ $household->fhead_bdate }}" placeholder="Birthdate" required />
-                        </div>
-                    </div>
                 </x-card>
             </div>
         </div>

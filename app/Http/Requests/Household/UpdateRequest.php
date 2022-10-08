@@ -26,11 +26,6 @@ class UpdateRequest extends FormRequest
         return [
             'household_number' => ['required', 'string', 'max:255'],
             'purok_name' => ['required', 'string'],
-            'fhead_name' => ['required', 'string'],
-            'fhead_gender' => ['required', 'string'],
-            'fhead_bdate' => ['required', 'date'],
-            'fhead_bplace' => ['required', 'string'],
-            'fhead_cstatus' => ['required', 'string'],
 
             'memberId' => ['required', 'array'],
             'memberId.*' => ['nullable', 'exists:household_members,id'],
@@ -53,7 +48,6 @@ class UpdateRequest extends FormRequest
         return [
             'household_number.required' => 'Household Number is required',
             'purok_name.required' => 'Purok Name is required',
-            'family_head.required' => 'Family Head is required',
         ];
     }
 }

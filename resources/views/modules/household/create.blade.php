@@ -29,43 +29,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-4">
-                            <label>Fullname of Family Head</label>
-                            <input type="text" name="fhead_name" class="form-control" value="{{ old('fhead_name') }}"
-                                required>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Gender of Family Head</label>
-                            <select name="fhead_gender" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($genders as $gender)
-                                    <option value="{{ $gender }}" @selected(old('fhead_gender') == $gender)>{{ $gender }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Civil Status</label>
-                            <select name="fhead_cstatus" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($cstatus as $status)
-                                    <option value="{{ $status }}" @selected(old('fhead_cstatus') == $status)>{{ $status }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Birth Place:</label>
-                            <input type="text" name="fhead_bplace" class="form-control" value="{{ old('fhead_bplace') }}"
-                                placeholder="Birthplace" required />
-                        </div>
-                        <div class="col-md-6">
-                            <label>Birth Date:</label>
-                            <input type="date" name="fhead_bdate" class="form-control" value="{{ old('fhead_bdate') }}"
-                                placeholder="Birthdate" required />
-                        </div>
-                    </div>
                 </x-card>
             </div>
         </div>

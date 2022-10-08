@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Household;
 use App\Services\Constant;
 use PhpOffice\PhpWord\TemplateProcessor;
+use Termwind\Components\Dd;
 
 class Export extends Component
 {
@@ -15,33 +16,33 @@ class Export extends Component
     {
         $path = storage_path(Constant::TEMPLATE_PATH_HOUSEHOLD);
         $templateProcessor = new TemplateProcessor($path);
-        $this->households->load('members');
 
-        // dd($this->households);
+        $household = Household::with('members')->orderBy('household_number')->get();
+
+        $this->households = $household;
+
+        // get the  members only from household
+        $members = $household->pluck('members')->flatten();
+
         $count = $this->households->count();
+        $memcount = $members->count();
 
         if ($count > 0) {
-            $templateProcessor->cloneRow('n', $count);
-            $i = 1;
-            foreach ($this->households as $key => $household) {
-                $templateProcessor->setValue('n#' . $i, $i);
-                $templateProcessor->setValue('h_number#' . ($key + 1), $household->household_number);
-                $templateProcessor->setValue('purok#' . ($key + 1), $household->purok_name);
-                $templateProcessor->setValue('fhead#' . ($key + 1), $household->fhead_name);
-                $templateProcessor->setValue('gend#' . ($key + 1), $household->fhead_gender);
-                $templateProcessor->setValue('bdate#' . ($key + 1), $household->fhead_bdate);
-                $templateProcessor->setValue('status#' . ($key + 1), $household->fhead_cstatus);
-                $i++;
-                // foreach ($household->members as $key => $member) {
-                //     $templateProcessor->setValue('mn#' . $i, $i);
-                //     $templateProcessor->setValue('mname#' . ($key + 1), $member->fullname);
-                //     $templateProcessor->setValue('mpurok#' . ($key + 1), $member->purok_name);
-                //     $templateProcessor->setValue('mgend#' . ($key + 1), $member->gender);
-                //     $templateProcessor->setValue('mbdate#' . ($key + 1), $member->bdate);
-                //     $templateProcessor->setValue('mstatus#' . ($key + 1), $member->cstatus);
+            if ($memcount > 0) {
+                $templateProcessor->cloneRow('n', $memcount);
+                $i = 1;
 
-                //     $i++;
-                // }
+                foreach ($members as $key => $member) {
+                    $templateProcessor->setValue('n#' . ($key + 1), $i);
+                    $templateProcessor->setValue('name#' . ($key + 1), $member->fullname);
+                    $templateProcessor->setValue('gend#' . ($key + 1), $member->gender);
+                    $templateProcessor->setValue('bdate#' . ($key + 1), $member->bdate);
+                    $templateProcessor->setValue('status#' . ($key + 1), $member->cstatus);
+                    $templateProcessor->setValue('h_number#' . ($key + 1), $household->where('id', $member->household_id)->first()->household_number);
+                    $templateProcessor->setValue('purok#' . ($key + 1), $household->where('id', $member->household_id)->first()->purok_name);
+
+                    $i++;
+                }
             }
         }
 
