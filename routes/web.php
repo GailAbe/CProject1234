@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/store', 'store')->name('complaint.store');
             Route::get('/edit/{id}', 'edit')->name('complaint.edit');
             Route::put('/update/{id}', 'update')->name('complaint.update');
+            Route::get('/show/{id}', 'show')->name('complaint.show');
+            Route::get('/settled/{id}', 'settled')->name('complaint.settled');
         });
     });
 

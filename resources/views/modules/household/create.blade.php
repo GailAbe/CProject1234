@@ -14,9 +14,9 @@
                 <x-card title="Create Household Record" :back-url="route('household.index')">
                     <div class="d-flex">
                         <div class="form-group col-md-6">
-                            <label>Household No. <span class="text-danger">*</span></label>
+                            <label>House No. <span class="text-danger">*</span></label>
                             <input type="text" name="household_number" class="form-control"
-                                value="{{ old('household_number') }}" placeholder="Enter Household No." required />
+                                value="{{ old('household_number') }}" placeholder="Enter House No." required />
                         </div>
                         <div class="form-group col-md-6">
                             <label>Purok: <span class="text-danger">*</span></label>

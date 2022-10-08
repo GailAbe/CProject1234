@@ -13,9 +13,9 @@
                 <x-card title="View Household Record" :back-url="route('household.index')">
                     <div class="d-flex">
                         <div class="form-group col-md-6">
-                            <label class="font-weight-bolder">Household No.</label>
+                            <label class="font-weight-bolder">House No.</label>
                             <input type="text" name="household_number" class="form-control"
-                                value="{{ $household->household_number }}" placeholder="Enter Household No." required
+                                value="{{ $household->household_number }}" placeholder="Enter House No." required
                                 readonly />
                         </div>
                         <div class="form-group col-md-6">

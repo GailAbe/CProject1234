@@ -26,7 +26,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>HOUSEHOLD NO.</th>
+                        <th>HOUSE NO.</th>
                         <th>PUROK</th>
                         <th>Number of Family Members</th>
                         <th class="text-center">Action</th>

@@ -31,26 +31,33 @@
                         <th>DATE & TIME</th>
                         <th>COMPLAINANT</th>
                         <th>COMPLAIN TO</th>
+                        <th>STATUS</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>test</td>
-                        <td>juan dela cruz</td>
-                        <td>place</td>
-                        <td class="nowrap d-flex justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <a href="" class="mr-1 btn btn-success btn-sm">
-                                    VIEW
-                                </a>
-                                <a href="" class="btn btn-sm btn-primary">
-                                    EDIT
-                                </a>
-                                {{-- @livewire('soi.soi-delete', ['sois' => $soi], key($soi['id'])) --}}
-                            </div>
-                        </td>
-                    </tr>
+                    @forelse ($complaints as $complaint)
+                        <tr>
+                            <td>{{ $complaint->date_time->format('F d Y, H:i:A') }}</td>
+                            <td>{{ $complaint->complainant }}</td>
+                            <td>{{ $complaint->complaint_to }}</td>
+                            <td>{{ $complaint->complaint_status }}</td>
+                            <td class="nowrap d-flex justify-content-center">
+                                @if ($complaint->complaint_status == 'Not Settled')
+                                    <a href="{{ route('complaint.settled', $complaint->id) }}" class="me-2"
+                                        onclick="return confirm('Are you sure to set this entry as settled?')">
+                                        <button type="button" class="btn btn-sm btn-warning mr-1">Set as settled</button>
+                                    </a>
+                                @endif
+                                <a href="" class="mr-1 btn btn-success btn-sm">VIEW</a>
+                                <a href="" class="btn btn-sm btn-primary">EDIT</a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center">No Complaints</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
