@@ -20,7 +20,7 @@
                         <i class="flaticon2-file-1"></i>
                     </span>Export</button>
                 <a href="{{ route('incident.create') }}" class="btn btn-primary font-weight-bolder">
-                    <i class="flaticon-add"></i> Add Incident
+                    <i class="flaticon-add"></i> Add Incident Record
                 </a>
             </div>
         </div>
@@ -36,25 +36,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>test</td>
-                        <td>juan dela cruz</td>
-                        <td>place</td>
-                        <td>test</td>
-                        <td class="nowrap d-flex justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <a href="" class="mr-1 btn btn-success btn-sm">
-                                    VIEW
-                                </a>
-                                <a href="" class="btn btn-sm btn-primary">
-                                    EDIT
-                                </a>
-                               
-                            </div>
-                        </td>
-                    </tr>
+                    @forelse ($incidents as $incident)
+                        <tr>
+                            <td>{{ $incident->date->format('M. d, Y, H:i:A') }}</td>
+                            <td>{{ $incident->victim }}</td>
+                            <td>{{ $incident->location }}</td>
+                            <td>{{ $incident->person_involved }}</td>
+                            <td class="nowrap d-flex justify-content-center">
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('incident.show', $incident->id) }}"
+                                        class="mr-1 btn btn-success btn-sm"> VIEW </a>
+                                    <a href="{{ route('incident.edit', $incident->id) }}"
+                                        class="mr-1 btn btn-sm btn-primary">
+                                        EDIT </a>
+                                    @livewire('incident.delete-inc', ['incident' => $incident], key($incident->id))
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center">No Incidents</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @livewireScripts
+@endpush

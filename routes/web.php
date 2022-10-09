@@ -52,9 +52,10 @@ Route::middleware('auth')->group(function () {
         ], function () {
             Route::get('/', 'index')->name('incident.index');
             Route::get('/create', 'create')->name('incident.create');
-            Route::get('/store', 'store')->name('incident.store');
+            Route::post('/store', 'store')->name('incident.store');
             Route::get('/edit/{id}', 'edit')->name('incident.edit');
-            Route::get('/update/{id}', 'update')->name('incident.update');
+            Route::put('/update/{id}', 'update')->name('incident.update');
+            Route::get('/show/{id}', 'show')->name('incident.show');
         });
     });
 
