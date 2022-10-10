@@ -12,9 +12,9 @@
                 <h2 class="card-label">INCIDENT</h2>
             </div>
             <div class="card-toolbar">
-                <form class="d-flex" role="search">
+                {{-- <form class="d-flex" role="search">
                     <input class="form-control search mr-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
+                </form> --}}
                 {{-- <button type="button" class="mr-2 btn btn-info font-weight-bolder">
                     <span class="svg-icon svg-icon-md">
                         <i class="flaticon2-file-1"></i>

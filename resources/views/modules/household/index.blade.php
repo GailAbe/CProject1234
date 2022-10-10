@@ -12,9 +12,9 @@
                 <h2 class="card-label">HOUSEHOLD</h2>
             </div>
             <div class="card-toolbar">
-                <form class="d-flex" role="search">
+                {{-- <form class="d-flex" role="search">
                     <input class="form-control search mr-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
+                </form> --}}
                 @livewire('household.export', ['households' => $households])
                 <a href="{{ route('household.create') }}" class="btn btn-primary font-weight-bolder">
                     <i class="flaticon-add"></i> Add Household
