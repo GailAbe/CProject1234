@@ -160,6 +160,27 @@
                 }
             });
         });
+        window.addEventListener('swal:settleconfirm', event => {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: event.detail.message,
+                showCancelButton: true,
+                confirmButtonText: `Yes`,
+                denyButtonText: `Cancel`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.livewire.emit('settle', event.detail.id)
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Successfully Set as Settled',
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+                }
+            });
+        });
         window.addEventListener('swal:confirm-release', event => {
             Swal.fire({
                 position: 'top-center',
@@ -245,7 +266,6 @@
             });
         });
     </script>
-
     <script>
         const config = {
             type: 'bar',
@@ -262,6 +282,15 @@
             document.getElementById('myChart'),
             config
         );
+    </script>
+    <script>
+        $(document).ready(function() {
+            window.setTimeout(function() {
+                $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
+                    $(this).remove();
+                });
+            }, 10000);
+        });
     </script>
 </body>
 

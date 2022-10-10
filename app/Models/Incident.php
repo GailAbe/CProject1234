@@ -19,4 +19,8 @@ class Incident extends Model
         'injury',
         'person_involved'
     ];
+
+    protected $casts = [
+        'date' => 'datetime'
+    ];
 }

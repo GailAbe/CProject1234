@@ -12,10 +12,13 @@ class Complaint extends Model
 
     protected $fillable = [
         'complainant',
-        'date',
-        'appellant',
-        'complaint_description',
-        'complaint_status',
+        'date_time',
         'witness',
+        'complaint_to',
+        'notes',
+    ];
+
+    protected $casts = [
+        'date_time' => 'datetime',
     ];
 }

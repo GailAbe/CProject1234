@@ -33,12 +33,7 @@ class HouseholdController extends Controller
 
         $household = Household::create([
             'household_number' => $validated['household_number'],
-            'purok_name' => $validated['purok_name'],
-            'fhead_name' => $validated['fhead_name'],
-            'fhead_gender' => $validated['fhead_gender'],
-            'fhead_bdate' => $validated['fhead_bdate'],
-            'fhead_bplace' => $validated['fhead_bplace'],
-            'fhead_cstatus' => $validated['fhead_cstatus'],
+            'purok_name' => $validated['purok_name']
         ]);
 
         foreach ($validated['fullname'] as $key => $value) {
@@ -82,12 +77,7 @@ class HouseholdController extends Controller
         // dd($household);
         $household->update(Arr::only($validated, [
             'household_number',
-            'purok_name',
-            'fhead_name',
-            'fhead_gender',
-            'fhead_bdate',
-            'fhead_bplace',
-            'fhead_cstatus'
+            'purok_name'
         ]));
 
 

@@ -26,9 +26,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>HOUSEHOLD NO.</th>
+                        <th>HOUSE NO.</th>
                         <th>PUROK</th>
-                        <th>FAMILY HEAD</th>
+                        <th>Number of Family Members</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -38,17 +38,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $household->household_number }}</td>
                             <td>{{ $household->purok_name }}</td>
-                            <td>{{ $household->fhead_name }}</td>
+                            <td>{{ $household->members->count() }}</td>
                             <td class="nowrap d-flex justify-content-center">
-                                <div class="d-flex justify-content-center">
-                                    <a href="{{ route('household.show', $household->id) }}"
-                                        class="mr-1 btn btn-success btn-sm">
-                                        VIEW
-                                    </a>
-                                    <a href="{{ route('household.edit', $household->id) }}"
-                                        class="btn btn-sm btn-primary mr-1">EDIT</a>
-                                    @livewire('household.del-exp', ['household' => $household], key($household->id))
-                                </div>
+                                {{-- <div class="d-flex justify-content-center"> --}}
+                                <a href="{{ route('household.show', $household->id) }}" class="mr-1 btn btn-success btn-sm">
+                                    VIEW
+                                </a>
+                                <a href="{{ route('household.edit', $household->id) }}"
+                                    class="btn btn-sm btn-primary mr-1">EDIT</a>
+                                @livewire('household.del-exp', ['household' => $household], key($household->id))
+                                {{-- </div> --}}
                             </td>
                         </tr>
                     @empty
