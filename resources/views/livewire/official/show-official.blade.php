@@ -43,23 +43,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td class="nowrap d-flex justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <a href="#" class="btn btn-sm btn-primary mr-1"
-                                     data-target="#edit"
-                                    data-toggle="modal">EDIT</a>
-                                    {{-- <a href="#" class="btn btn-sm btn-primary mr-1"
-                                    wire:click='edit({{ $official->id }})' data-target="#edit"
-                                    data-toggle="modal">EDIT</a> --}}
-                                    <a href="#" class="btn btn-sm btn-danger">
+                    @forelse ($officials as $official)
+                        <tr>
+                            <td>{{ $official->fullname }}</td>
+                            <td>{{ $official->position }}</td>
+                            <td class="nowrap d-flex justify-content-center">
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-primary btn-sm mx-3"
+                                        wire:click='edit({{ $official->id }})' data-target="#edit" data-toggle="modal">
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                        EDIT
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-sm"
+                                        wire:click='deleteConfirm({{ $official->id }})'> <i class="fa fa-trash"
+                                            aria-hidden="true"></i>
                                         DELETE
                                     </a>
-                            </div>
-                        </td>
-                    </tr>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center">No data found</td>
+                        </tr>
+                    @endforelse
 
                 </tbody>
             </table>

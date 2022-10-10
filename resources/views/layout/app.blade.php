@@ -266,11 +266,11 @@
             });
         });
     </script>
-    <script>
+    {{-- <script>
         const config = {
             type: 'bar',
             data: {
-                labels:[]
+                labels: []
                 datasets: [{
                     data: [50, 60, 70],
                 }],
@@ -282,7 +282,7 @@
             document.getElementById('myChart'),
             config
         );
-    </script>
+    </script> --}}
     <script>
         $(document).ready(function() {
             window.setTimeout(function() {

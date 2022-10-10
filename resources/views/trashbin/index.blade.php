@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('title')
     Trash Bin
@@ -17,11 +17,11 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title" data-toggle="collapse" data-target="#abyiptrash">
+                        <div class="card-title" data-toggle="collapse" data-target="#hholdtrash">
                             HOUSEHOLD
                         </div>
                     </div>
-                    <div id="abyiptrash" class="collapse show" data-parent="#accordionExample1">
+                    <div id="hholdtrash" class="collapse show" data-parent="#accordionExample1">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -30,10 +30,19 @@
                                         <th>Date of Deletion</th>
                                         <th class="col-md-3">Actions</th>
                                     </tr>
-                                    <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                    </tr>
+                                    @forelse ($households as $household)
+                                        <tr>
+                                            <td>{{ $household->household_number }}</td>
+                                            <td>{{ $household->deleted_at }}</td>
+                                            <td>
+                                                @livewire('household.trash-household', ['household' => $household], key($household->id))
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-center">No deleted household entries</td>
+                                        </tr>
+                                    @endforelse
                                 </table>
                             </div>
                         </div>
@@ -42,11 +51,11 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title" data-toggle="collapse" data-target="#abyiptrash">
+                        <div class="card-title" data-toggle="collapse" data-target="#complainttrash">
                             COMPLAINT
                         </div>
                     </div>
-                    <div id="abyiptrash" class="collapse show" data-parent="#accordionExample1">
+                    <div id="complainttrash" class="collapse" data-parent="#accordionExample1">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -55,10 +64,19 @@
                                         <th>Date of Deletion</th>
                                         <th class="col-md-3">Actions</th>
                                     </tr>
-                                    <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                    </tr>
+                                    @forelse ($complaints as $complaint)
+                                        <tr>
+                                            <td>{{ $complaint->notes }}</td>
+                                            <td>{{ $complaint->deleted_at }}</td>
+                                            <td>
+                                                @livewire('complaint.trash-complaint', ['complaint' => $complaint], key($complaint->id))
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-center">No deleted complaint entries</td>
+                                        </tr>
+                                    @endforelse
                                 </table>
                             </div>
                         </div>
@@ -67,11 +85,11 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title" data-toggle="collapse" data-target="#abyiptrash">
+                        <div class="card-title" data-toggle="collapse" data-target="#inctrash">
                             INCIDENT
                         </div>
                     </div>
-                    <div id="abyiptrash" class="collapse show" data-parent="#accordionExample1">
+                    <div id="inctrash" class="collapse" data-parent="#accordionExample1">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -80,10 +98,19 @@
                                         <th>Date of Deletion</th>
                                         <th class="col-md-3">Actions</th>
                                     </tr>
-                                    <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                    </tr>
+                                    @forelse ($incidents as $incident)
+                                        <tr>
+                                            <td>{{ $incident->incident_description }}</td>
+                                            <td>{{ $incident->deleted_at }}</td>
+                                            <td>
+                                                @livewire('incident.trash-incident', ['incident' => $incident], key($incident->id))
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-center">No deleted incident entries</td>
+                                        </tr>
+                                    @endforelse
                                 </table>
                             </div>
                         </div>
@@ -92,11 +119,11 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title" data-toggle="collapse" data-target="#abyiptrash">
-                             
+                        <div class="card-title" data-toggle="collapse" data-target="#offcialtrash">
+                            OFFICIALS
                         </div>
                     </div>
-                    <div id="abyiptrash" class="collapse show" data-parent="#accordionExample1">
+                    <div id="offcialtrash" class="collapse" data-parent="#accordionExample1">
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -105,10 +132,19 @@
                                         <th>Date of Deletion</th>
                                         <th class="col-md-3">Actions</th>
                                     </tr>
-                                    <tr>
-                                        <td>test</td>
-                                        <td>test</td>
-                                    </tr>
+                                    @forelse ($officials as $official)
+                                        <tr>
+                                            <td>{{ $official->fullname }}</td>
+                                            <td>{{ $official->deleted_at }}</td>
+                                            <td>
+                                                @livewire('official.trash-official', ['official' => $official], key($official->id))
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-center">No deleted official entries</td>
+                                        </tr>
+                                    @endforelse
                                 </table>
                             </div>
                         </div>
