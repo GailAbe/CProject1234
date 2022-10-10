@@ -48,8 +48,9 @@
                         <span class="menu-text">OFFICIALS</span>
                     </a>
                 </li>
-                <li class="menu-item" aria-haspopup="true">
-                    <a href="" class="menu-link menu-toggle">
+                <li class="menu-item {{ !request()->routeIs('trashbin.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('trashbin.index') }}" class="menu-link menu-toggle">
                         <i class="menu-icon fas fa-trash"></i>
                         <span class="menu-text text-nowrap">TRASH BIN</span>
                     </a>

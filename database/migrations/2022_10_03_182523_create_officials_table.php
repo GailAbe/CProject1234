@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('position');
-            $table->string('contact_number');
-            $table->string('purok');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -15,10 +15,10 @@
                 <form class="d-flex" role="search">
                     <input class="form-control search mr-2" type="search" placeholder="Search" aria-label="Search">
                 </form>
-                <button type="button" class="mr-2 btn btn-info font-weight-bolder">
+                {{-- <button type="button" class="mr-2 btn btn-info font-weight-bolder">
                     <span class="svg-icon svg-icon-md">
                         <i class="flaticon2-file-1"></i>
-                    </span>Export</button>
+                    </span>Export</button> --}}
                 <a href="{{ route('incident.create') }}" class="btn btn-primary font-weight-bolder">
                     <i class="flaticon-add"></i> Add Incident Record
                 </a>
