@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
             $table->string('complainant');
-            $table->string('date');
-            $table->string('appellant');
-            $table->string('complaint_description');
-            $table->string('complaint_status')->default('pending');
-            $table->string('witness');
+            $table->string('date_time');
+            $table->string('witness')->nullable();
+            $table->string('complaint_to');
+            $table->string('notes');
+            $table->string('complaint_status')->default('Not Settled');
             $table->softDeletes();
             $table->timestamps();
         });

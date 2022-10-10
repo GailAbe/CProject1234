@@ -31,28 +31,39 @@
                         <th>DATE & TIME</th>
                         <th>COMPLAINANT</th>
                         <th>COMPLAIN TO</th>
-                        <th class="text-center">Action</th>
+                        <th>STATUS</th>
+                        <th class="text-center">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>test</td>
-                        <td>juan dela cruz</td>
-                        <td>place</td>
-                        <td class="nowrap d-flex justify-content-center">
-                            <div class="d-flex justify-content-center">
-                                <a href="" class="mr-1 btn btn-success btn-sm">
-                                    VIEW
-                                </a>
-                                <a href="" class="btn btn-sm btn-primary">
-                                    EDIT
-                                </a>
-                                {{-- @livewire('soi.soi-delete', ['sois' => $soi], key($soi['id'])) --}}
-                            </div>
-                        </td>
-                    </tr>
+                    @forelse ($complaints as $complaint)
+                        <tr>
+                            <td>{{ $complaint->date_time->format('M. d, Y, H:i:A') }}</td>
+                            <td>{{ $complaint->complainant }}</td>
+                            <td>{{ $complaint->complaint_to }}</td>
+                            <td>{{ $complaint->complaint_status }}</td>
+                            <td class="nowrap d-flex justify-content-center">
+                                @if ($complaint->complaint_status == 'Not Settled')
+                                    @livewire('complaint.settle', ['complaint' => $complaint], key($complaint->id))
+                                @endif
+                                <a href="{{ route('complaint.show', $complaint->id) }}"
+                                    class="btn btn-sm btn-primary mr-1">VIEW</a>
+                                <a href="{{ route('complaint.edit', [$complaint]) }}"
+                                    class="mr-1 btn btn-success btn-sm mr-1">EDIT</a>
+                                @livewire('complaint.delete', ['complaint' => $complaint], key($complaint->id))
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center">No Complaints</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @livewireScripts
+@endpush

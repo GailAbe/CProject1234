@@ -14,9 +14,9 @@
                 <x-card title="Create Household Record" :back-url="route('household.index')">
                     <div class="d-flex">
                         <div class="form-group col-md-6">
-                            <label>Household No. <span class="text-danger">*</span></label>
+                            <label>House No. <span class="text-danger">*</span></label>
                             <input type="text" name="household_number" class="form-control"
-                                value="{{ old('household_number') }}" placeholder="Enter Household No." required />
+                                value="{{ old('household_number') }}" placeholder="Enter House No." required />
                         </div>
                         <div class="form-group col-md-6">
                             <label>Purok: <span class="text-danger">*</span></label>
@@ -27,43 +27,6 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-md-4">
-                            <label>Fullname of Family Head</label>
-                            <input type="text" name="fhead_name" class="form-control" value="{{ old('fhead_name') }}"
-                                required>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Gender of Family Head</label>
-                            <select name="fhead_gender" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($genders as $gender)
-                                    <option value="{{ $gender }}" @selected(old('fhead_gender') == $gender)>{{ $gender }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Civil Status</label>
-                            <select name="fhead_cstatus" class="form-control">
-                                <option value="">-- Please select --</option>
-                                @foreach ($cstatus as $status)
-                                    <option value="{{ $status }}" @selected(old('fhead_cstatus') == $status)>{{ $status }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Birth Place:</label>
-                            <input type="text" name="fhead_bplace" class="form-control" value="{{ old('fhead_bplace') }}"
-                                placeholder="Birthplace" required />
-                        </div>
-                        <div class="col-md-6">
-                            <label>Birth Date:</label>
-                            <input type="date" name="fhead_bdate" class="form-control" value="{{ old('fhead_bdate') }}"
-                                placeholder="Birthdate" required />
                         </div>
                     </div>
                 </x-card>
