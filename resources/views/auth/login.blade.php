@@ -9,7 +9,7 @@
         <!--begin::Login-->
         <div class="login login-5 login-signin-on d-flex flex-row-fluid" id="kt_login">
             <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
-                style="background-image: url(assets/media/bg/bg-2.jpg);">
+                style="background-image: url(assets/media/bg/bg2.jpg);">
                 <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                     <!--begin::Login Header-->
                     <div class="d-flex flex-center mb-15">
@@ -23,8 +23,8 @@
                         @csrf
                         <div class="login-signin">
                             <div class="mb-20">
-                                <h3 class="opacity-40 font-weight-normal">Sign In To Admin</h3>
-                                <p class="opacity-40">Enter your details to login to your account:</p>
+                                <h3 class="font-weight-bolder">Sign In To Admin</h3>
+                                <p class="font-weight-bold">Enter your details to login to your account:</p>
                             </div>
                             <form class="form" id="kt_login_signin_form">
                                 <div class="form-group">
