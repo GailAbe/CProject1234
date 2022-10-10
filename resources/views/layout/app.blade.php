@@ -110,189 +110,172 @@
 
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('scripts')
+    @section('scripts')
 
-    <script>
-        window.addEventListener('swalSuccess', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: event.detail.message,
-                showConfirmButton: false,
-                timer: 1500
-            })
-        });
-        window.addEventListener('swalDel', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'error',
-                title: event.detail.message,
-                showConfirmButton: false,
-                timer: 1500
-            })
-        });
-        window.addEventListener('already-confirmed', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showConfirmButton: false,
-                timer: 1500
-            })
-        });
-        window.addEventListener('swal:confirm', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('delete', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Deleted',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
+        <script>
+            window.addEventListener('swalSuccess', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: event.detail.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             });
-        });
-        window.addEventListener('swal:settleconfirm', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('settle', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Set as Settled',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
+            window.addEventListener('swalDel', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'error',
+                    title: event.detail.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             });
-        });
-        window.addEventListener('swal:confirm-release', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('release', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Released',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
+            window.addEventListener('already-confirmed', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             });
-        });
-        window.addEventListener('swal:confirm-cancel', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('cancel', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Cancelled',
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
-            });
-        });
-        window.addEventListener('swal:restore', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('restore', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Restored',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            });
-        });
-        window.addEventListener('swal:forceDel', event => {
-            Swal.fire({
-                position: 'top-center',
-                icon: 'warning',
-                title: event.detail.message,
-                showCancelButton: true,
-                confirmButtonText: `Yes`,
-                denyButtonText: `Cancel`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.livewire.emit('forceDelete', event.detail.id)
-                    Swal.fire({
-                        position: 'top-center',
-                        icon: 'success',
-                        title: 'Successfully Deleted',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            });
-        });
-    </script>
-
-    <script>
-        const config = {
-            type: 'bar',
-            data: {
-                datasets: [{
-                    data: [50, 60, 70],
-                }],
-                labels: ['Household', 'Complaint', 'Incident'],
-            }
-        };
-
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            window.setTimeout(function() {
-                $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
-                    $(this).remove();
+            window.addEventListener('swal:confirm', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('delete', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Deleted',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
                 });
-            }, 10000);
-        });
-    </script>
-</body>
+            });
+            window.addEventListener('swal:settleconfirm', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('settle', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Set as Settled',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                });
+            });
+            window.addEventListener('swal:confirm-release', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('release', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Released',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                });
+            });
+            window.addEventListener('swal:confirm-cancel', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('cancel', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Cancelled',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                });
+            });
+            window.addEventListener('swal:restore', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('restore', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Restored',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                });
+            });
+            window.addEventListener('swal:forceDel', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'warning',
+                    title: event.detail.message,
+                    showCancelButton: true,
+                    confirmButtonText: `Yes`,
+                    denyButtonText: `Cancel`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.livewire.emit('forceDelete', event.detail.id)
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'Successfully Deleted',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(1000, 0).slideUp(1000, function() {
+                        $(this).remove();
+                    });
+                }, 10000);
+            });
+        </script>
+    </body>
 
-</html>
+    </html>

@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-2">
             <div class="card wave wave-success card-custom card-stretch">
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
@@ -24,12 +24,13 @@
                             </g>
                         </svg>
                     </span>
-                    <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">0</span>
+                    <span
+                        class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $households }}</span>
                     <span class="font-weight-bold text-muted font-size-sm">Total Household</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
             <div class="card wave wave-success card-custom card-stretch">
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
@@ -48,12 +49,13 @@
                             </g>
                         </svg>
                     </span>
-                    <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">0</span>
+                    <span
+                        class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $complaints }}</span>
                     <span class="font-weight-bold text-muted font-size-sm">Total Complaint</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
             <div class="card wave wave-success card-custom card-stretch">
                 <div class="card-body">
                     <span class="svg-icon svg-icon-2x svg-icon-info">
@@ -72,17 +74,12 @@
                             </g>
                         </svg>
                     </span>
-                    <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">0</span>
+                    <span
+                        class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $incidents }}</span>
                     <span class="font-weight-bold text-muted font-size-sm">Total Incident</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <canvas id="myChart"></canvas>
-        </div>
-    </div>
-
+    @livewire('chart.dbchart')
 @endsection
