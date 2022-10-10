@@ -16,6 +16,7 @@
     <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
         type="text/css" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
@@ -105,6 +106,7 @@
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/pages/widgets.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('scripts')
@@ -242,6 +244,24 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        const config = {
+            type: 'bar',
+            data: {
+                labels:[]
+                datasets: [{
+                    data: [50, 60, 70],
+                }],
+                labels: ['Household', 'Complaint', 'Incident'],
+            }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
     </script>
 </body>
 
