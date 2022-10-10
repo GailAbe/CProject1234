@@ -1,6 +1,6 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <a href="#">
-        <img alt="Logo" class="w-45px" src="{{ asset('assets/media/logos/e-bms.png') }}" />
+        <img alt="Logo" class="w-45px" src="{{ asset('z2.png') }}" />
     </a>
     <div class="d-flex align-items-center">
         <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
