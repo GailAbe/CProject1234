@@ -6,7 +6,7 @@
                 <div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px">
                     <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2">
                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,
-                            {{  auth()->user()->user_name  }}</span>
+                            {{ auth()->user()->user_name }}</span>
                         <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
 
                             <span>
@@ -29,16 +29,13 @@
                         </div>
                     </div>
                     <div class="navi navi-spacer-x-0 pt-5">
-                        <a href="#" class="navi-item px-8">
+                        <a href="#" class="navi-item px-8" download="brgy.Zone 2.pdf">
                             <div class="navi-link">
                                 <div class="navi-icon mr-2">
                                     <i class="flaticon2-calendar-3 text-info"></i>
                                 </div>
                                 <div class="navi-text">
-                                    <div class="font-weight-bold">My Profile</div>
-                                    <div class="text-muted">Account settings and more
-                                        {{--                                        <span class="label label-light-danger label-inline font-weight-bold">update</span> --}}
-                                    </div>
+                                    <div class="font-weight-bold">View Barangay Information</div>
                                 </div>
                             </div>
                         </a>
