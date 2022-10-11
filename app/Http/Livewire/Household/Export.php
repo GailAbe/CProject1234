@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\Official;
 use App\Models\Household;
 use App\Services\Constant;
-use Termwind\Components\Dd;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class Export extends Component
@@ -59,7 +58,6 @@ class Export extends Component
         }
 
         $templateProcessor->saveAs(storage_path($tempPath));
-
         return response()->download(storage_path($tempPath));
     }
 
