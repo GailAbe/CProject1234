@@ -49,17 +49,14 @@ class Export extends Component
         $filename = 'household-' . date('Y-m-d-h-i-s-a');
         $tempPath = 'reports/' . $filename . '.docx';
 
-        $templateProcessor->saveAs($tempPath);
-        // if folder does not exist, create it
-        if (!file_exists(storage_path('app/public/reports'))) {
-            mkdir(storage_path('app/public/reports'), 0777, true);
+        // save the file, if folder not exist create it
+        if (!file_exists(storage_path('reports'))) {
+            mkdir(storage_path('reports'), 0777, true);
         }
 
-        // rename(storage_path('app/' . $tempPath), storage_path('app/public/' . $tempPath));
+        $templateProcessor->saveAs(storage_path($tempPath));
 
-        return response()->download(storage_path('app/public/' . $tempPath));
-
-        // return response()->download(public_path($tempPath));
+        return response()->download(storage_path($tempPath));
     }
 
     public function render()
