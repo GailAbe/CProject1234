@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('officials', function (Blueprint $table) {
             $table->id();
             $table->string('fullname');
+            $table->string('age');
+            $table->string('gender');
+            $table->string('contact_number');
+            $table->string('purok');
             $table->string('position');
             $table->softDeletes();
             $table->timestamps();

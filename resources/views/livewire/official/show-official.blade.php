@@ -39,7 +39,10 @@
                     <tr class="text-left">
                         <th style="min-width: 200px">Full Name</th>
                         <th style="min-width: 150px">Position</th>
-                        <th class="pr-0 text-center" style="min-width: 150px">action</th>
+                        <th>Gender</th>
+                        <th>Purok</th>
+                        <th>Contact Number</th>
+                        <th class="pr-0 text-center" style="min-width: 150px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,16 +50,17 @@
                         <tr>
                             <td>{{ $official->fullname }}</td>
                             <td>{{ $official->position }}</td>
+                            <td>{{ $official->gender }}</td>
+                            <td>{{ $official->purok }}</td>
+                            <td>{{ $official->contact_number }}</td>
                             <td class="nowrap d-flex justify-content-center">
                                 <div class="d-flex justify-content-center">
                                     <a href="#" class="btn btn-primary btn-sm mx-3"
                                         wire:click='edit({{ $official->id }})' data-target="#edit" data-toggle="modal">
-                                        <i class="fa fa-edit" aria-hidden="true"></i>
                                         EDIT
                                     </a>
                                     <a href="#" class="btn btn-danger btn-sm"
-                                        wire:click='deleteConfirm({{ $official->id }})'> <i class="fa fa-trash"
-                                            aria-hidden="true"></i>
+                                        wire:click='deleteConfirm({{ $official->id }})'>
                                         DELETE
                                     </a>
                                 </div>
@@ -64,7 +68,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-center">No data found</td>
+                            <td colspan="6" class="text-center">No data found</td>
                         </tr>
                     @endforelse
 

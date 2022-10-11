@@ -12,6 +12,8 @@ class Official extends Model
 
     protected $fillable = [
         'fullname',
+        'age',
+        'gender',
         'position',
         'contact_number',
         'purok',

@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Household;
 
 use Livewire\Component;
+use App\Models\Official;
 use App\Models\Household;
 use App\Services\Constant;
-use PhpOffice\PhpWord\TemplateProcessor;
 use Termwind\Components\Dd;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 class Export extends Component
 {
@@ -18,6 +19,9 @@ class Export extends Component
         $templateProcessor = new TemplateProcessor($path);
 
         $household = Household::with('members')->orderBy('household_number')->get();
+        $officials = Official::get();
+        $skTreasurer = $officials->where('position', 'Sk-Secretary')->first();
+        $skChairperson = $officials->where('position', 'Sk-Chairperson')->first();
 
         $this->households = $household;
 

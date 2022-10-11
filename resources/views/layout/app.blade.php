@@ -113,6 +113,11 @@
     @section('scripts')
 
         <script>
+            if (window.livewire) {
+                window.livewire.on('hideModal', (modalId) => {
+                    $(modalId).modal('hide');
+                });
+            }
             window.addEventListener('swalSuccess', event => {
                 Swal.fire({
                     position: 'top-center',
@@ -129,6 +134,14 @@
                     title: event.detail.message,
                     showConfirmButton: false,
                     timer: 1500
+                })
+            });
+            window.addEventListener('OfficialError', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'error',
+                    title: event.detail.message,
+                    showConfirmButton: true,
                 })
             });
             window.addEventListener('already-confirmed', event => {
