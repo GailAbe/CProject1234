@@ -55,9 +55,7 @@ class Export extends Component
             mkdir(storage_path('app/public/reports'), 0777, true);
         }
 
-        // move the file to public folder
-
-        rename(storage_path('app/' . $tempPath), storage_path('app/public/' . $tempPath));
+        // rename(storage_path('app/' . $tempPath), storage_path('app/public/' . $tempPath));
 
         return response()->download(storage_path('app/public/' . $tempPath));
 
