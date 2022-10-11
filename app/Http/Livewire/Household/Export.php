@@ -50,7 +50,18 @@ class Export extends Component
         $tempPath = 'reports/' . $filename . '.docx';
 
         $templateProcessor->saveAs($tempPath);
-        return response()->download(public_path($tempPath));
+        // if folder does not exist, create it
+        if (!file_exists(storage_path('app/public/reports'))) {
+            mkdir(storage_path('app/public/reports'), 0777, true);
+        }
+
+        // move the file to public folder
+
+        rename(storage_path('app/' . $tempPath), storage_path('app/public/' . $tempPath));
+
+        return response()->download(storage_path('app/public/' . $tempPath));
+
+        // return response()->download(public_path($tempPath));
     }
 
     public function render()
