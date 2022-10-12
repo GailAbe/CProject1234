@@ -5,7 +5,7 @@
     'footer',
 ])
 
-<div class="card card-custom gutter-b">
+<div class="card card-custom card-stretch gutter-b">
     <div class="card-header">
         <div class="card-title">
             @if ($backUrl)
@@ -18,7 +18,7 @@
             </h1>
         </div>
         @isset($toolbar)
-            <div class="card-toolbar">
+            <div class="card-toolbar d-flex justify-content-end">
                 {{ $toolbar }}
             </div>
         @endisset
