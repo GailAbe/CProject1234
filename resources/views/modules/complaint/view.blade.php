@@ -10,8 +10,8 @@
         @csrf
         @method('PUT')
         <div class="row">
-            <div class="col-md-12">
-                <x-card title="View Complaint" :back-url="route('complaint.index')">
+            <div class="col-md-6">
+                <x-card title="Settled Complaint" :back-url="route('complaint.index')">
                     <div class="d-flex flex-wrap">
                         <div class="form-group col-md-6">
                             <label class="font-weight-bolder">Name of Complainant:<span class="text-danger">*</span></label>
@@ -42,6 +42,26 @@
                     </div>
                 </x-card>
             </div>
+            <div class="col-md-6">
+                <x-card title="Upload Image">
+                    <x-slot:toolbar>
+                        <label for="file-upload" class="custom-file-upload font-weight-bold btn btn-outline-primary">
+                            <i class="fas fa-cloud-upload-alt"></i> Upload File
+                        </label>
+                        <input id="file-upload" type="file" />
+                    </x-slot:toolbar>
+                    <div class="row">
+
+                    </div>
+                    <x-slot:footer>
+                        <div class="d-flex justify-content-center">
+                            <button type="reset" class="btn font-weight-bolder btn-light-danger btn-lg col-md-8">SET AS
+                                SETTLED</button>
+                        </div>
+                    </x-slot:footer>
+                </x-card>
+            </div>
+        </div>
         </div>
     </form>
 @endsection
