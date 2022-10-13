@@ -40,7 +40,7 @@
             <form method="post" action="{{ route('complaint.settleImageStore', $complaint->id) }}"
                 enctype="multipart/form-data">
                 @csrf
-                <x-card title="Upload Image">
+                <x-card title="Image">
                     <x-slot:toolbar>
                         @if ($image == 'no-image.jpg')
                             <label for="file-upload" class="custom-file-upload font-weight-bold btn btn-outline-primary">
