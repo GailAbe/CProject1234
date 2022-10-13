@@ -35,7 +35,6 @@
                                 <option value="Non-Binary">Non-Binary</option>
                                 <option value="Transgender">Transgender</option>
                                 <option value="Intersex">Intersex</option>
-                                <option value="">Prefer not to say</option>
                             </select>
                             @error('gender')
                                 <span class="text-danger">{{ $message }}</span>
