@@ -21,4 +21,9 @@ class Complaint extends Model
     protected $casts = [
         'date_time' => 'datetime',
     ];
+
+    public function images()
+    {
+        return $this->hasOne(Complaint_image::class);
+    }
 }

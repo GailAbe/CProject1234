@@ -123,7 +123,7 @@ class ShowOfficial extends Component
         $this->resetInputFields();
         $this->emit('hideModal', '#edit');
 
-        $this->dispatchBrowserEvent('swalSuccess', ['message' => 'You have successfully added a new Official']);
+        $this->dispatchBrowserEvent('swalSuccess', ['message' => 'You have successfully updated the Official']);
     }
 
     public function deleteConfirm($id)

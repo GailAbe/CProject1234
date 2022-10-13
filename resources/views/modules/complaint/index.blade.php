@@ -43,9 +43,6 @@
                             <td>{{ $complaint->complaint_to }}</td>
                             <td>{{ $complaint->complaint_status }}</td>
                             <td class="nowrap d-flex justify-content-center">
-                                @if ($complaint->complaint_status == 'Not Settled')
-                                    @livewire('complaint.settle', ['complaint' => $complaint], key($complaint->id))
-                                @endif
                                 <a href="{{ route('complaint.show', $complaint->id) }}"
                                     class="btn btn-sm btn-primary mr-1">VIEW</a>
                                 <a href="{{ route('complaint.edit', [$complaint]) }}"
