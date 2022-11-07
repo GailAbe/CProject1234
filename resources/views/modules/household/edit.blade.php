@@ -43,11 +43,12 @@
                             <div class="form-group col-md-4">
                                 <label class="font-weight-bolder">Full Name:<span class="text-danger">*</span></label>
                                 <input type="text" name="fullname[]" class="form-control"
-                                    value="{{ $hmember->fullname }}" placeholder="Lastname, Firstname Middlename" />
+                                    value="{{ $hmember->fullname }}" placeholder="Lastname, Firstname Middlename"
+                                    required />
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="font-weight-bolder">Gender:</label>
-                                <select name="gender[]" class="form-control">
+                                <select name="gender[]" class="form-control" required>
                                     <option value="">-- Please select --</option>
                                     @foreach ($genders as $gender)
                                         <option value="{{ $gender }}" @selected($hmember->gender == $gender)>
@@ -64,12 +65,12 @@
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bolder">Birth Place:</label>
                                 <input type="text" name="bplace[]" class="form-control" value="{{ $hmember->bplace }}"
-                                    placeholder="Enter purpose" />
+                                    placeholder="Enter purpose" required />
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bolder">Civil Status:</label>
                                 <div class="input-group">
-                                    <select name="cstatus[]" class="form-control">
+                                    <select name="cstatus[]" class="form-control" required>
                                         <option value="">-- Please select --</option>
                                         @foreach ($cstatus as $status)
                                             <option value="{{ $status }}" @selected($hmember->cstatus == $status)>

@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="navi navi-spacer-x-0 pt-5">
-                        <a href="#" class="navi-item px-8" download="brgy.Zone 2.pdf">
+                        <a href="{{ route('brgyInfo') }}" class="navi-item px-8">
                             <div class="navi-link">
                                 <div class="navi-icon mr-2">
                                     <i class="flaticon2-calendar-3 text-info"></i>

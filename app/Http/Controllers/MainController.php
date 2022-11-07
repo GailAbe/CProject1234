@@ -18,4 +18,9 @@ class MainController extends Controller
 
         return view('modules.dashboard', compact('households', 'incidents', 'complaints'));
     }
+
+    public function brgyInfo()
+    {
+        return view('brgyinfo.index');
+    }
 }

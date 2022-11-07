@@ -28,6 +28,12 @@ class Export extends Component
         $members = $household->pluck('members')->flatten();
 
         $count = $this->households->count();
+
+        if ($count <= 0) {
+            $this->dispatchBrowserEvent('swalError', ['message' => 'No household record found!']);
+            return redirect(route('household.index'));
+        }
+
         $memcount = $members->count();
 
         if ($count > 0) {

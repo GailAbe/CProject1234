@@ -12,9 +12,7 @@
                 <h2 class="card-label">HOUSEHOLD</h2>
             </div>
             <div class="card-toolbar">
-                {{-- <form class="d-flex" role="search">
-                    <input class="form-control search mr-2" type="search" placeholder="Search" aria-label="Search">
-                </form> --}}
+                {{-- if households is > 0, show --}}
                 @livewire('household.export', ['households' => $households])
                 <a href="{{ route('household.create') }}" class="btn btn-primary font-weight-bolder">
                     <i class="flaticon-add"></i> Add Household
@@ -40,14 +38,12 @@
                             <td>{{ $household->purok_name }}</td>
                             <td>{{ $household->members->count() }}</td>
                             <td class="nowrap d-flex justify-content-center">
-                                {{-- <div class="d-flex justify-content-center"> --}}
                                 <a href="{{ route('household.show', $household->id) }}" class="mr-1 btn btn-success btn-sm">
                                     VIEW
                                 </a>
                                 <a href="{{ route('household.edit', $household->id) }}"
                                     class="btn btn-sm btn-primary mr-1">EDIT</a>
                                 @livewire('household.del-exp', ['household' => $household], key($household->id))
-                                {{-- </div> --}}
                             </td>
                         </tr>
                     @empty

@@ -39,12 +39,12 @@
                     <div class="row border rounded-sm border-dark pt-3 m-2" data-parent>
                         <div class="form-group col-md-4">
                             <label>Full Name:<span class="text-danger">*</span></label>
-                            <input type="text" name="fullname[]" class="form-control" value=""
-                                placeholder="Lastname, Firstname Middlename" />
+                            <input type="text" name="fullname[]" class="form-control" value="{{ old('fullname.0') }}"
+                                placeholder="Lastname, Firstname Middlename" required />
                         </div>
                         <div class="form-group col-md-4">
                             <label>Gender:</label>
-                            <select name="gender[]" class="form-control">
+                            <select name="gender[]" class="form-control" required>
                                 <option value="">-- Please select --</option>
                                 @foreach ($genders as $gender)
                                     <option value="{{ $gender }}" @selected(old('gender.0') == $gender)>{{ $gender }}
@@ -54,17 +54,18 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>Birthdate:</label>
-                            <input type="date" name="bdate[]" class="form-control" value="" placeholder="" />
+                            <input type="date" name="bdate[]" class="form-control" value="{{ old('bdate.0') }}"
+                                placeholder="Enter Birthdate (dd/mm/YYYY)" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label>Birth Place:</label>
-                            <input type="text" name="bplace[]" class="form-control" value=""
-                                placeholder="Enter purpose" />
+                            <input type="text" name="bplace[]" class="form-control" value="{{ old('bplace.0') }}"
+                                placeholder="Enter birthplace" required />
                         </div>
                         <div class="form-group col-md-6">
                             <label>Civil Status:</label>
                             <div class="input-group">
-                                <select name="cstatus[]" class="form-control">
+                                <select name="cstatus[]" class="form-control" required>
                                     <option value="">-- Please select --</option>
                                     @foreach ($cstatus as $status)
                                         <option value="{{ $status }}" @selected(old('cstatus.0') == $status)>

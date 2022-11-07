@@ -120,6 +120,15 @@
                     $(modalId).modal('hide');
                 });
             }
+            window.addEventListener('swalError', event => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'error',
+                    title: event.detail.message,
+                    showConfirmButton: true,
+                    timer: 3000
+                })
+            });
             window.addEventListener('swalSuccess', event => {
                 Swal.fire({
                     position: 'top-center',

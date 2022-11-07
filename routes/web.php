@@ -18,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [MainController::class, 'home'])->name('home');
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+    Route::get('/brgyInfo', [MainController::class, 'brgyInfo'])->name('brgyInfo');
+
 
     Route::controller(ComplaintController::class)->group(function () {
         Route::group([
