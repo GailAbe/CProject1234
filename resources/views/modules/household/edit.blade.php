@@ -60,12 +60,12 @@
                             <div class="form-group col-md-4">
                                 <label class="font-weight-bolder">Birthdate:</label>
                                 <input type="date" name="bdate[]" class="form-control" value="{{ $hmember->bdate }}"
-                                    placeholder="" />
+                                    placeholder="Enter Birthdate" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bolder">Birth Place:</label>
                                 <input type="text" name="bplace[]" class="form-control" value="{{ $hmember->bplace }}"
-                                    placeholder="Enter purpose" required />
+                                    placeholder="Enter birthplace" required />
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="font-weight-bolder">Civil Status:</label>
